@@ -4,13 +4,31 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class campaign extends Model
+class Campaign extends Model
 {
-    protected$fillable = [
+    protected $fillable = [
         'title',
         'description',
         'target_donation',
         'collected_donation',
         'deadline'
     ];
+
+    // One to One
+    public function account()
+    {
+        return $this->hasOne(CampaignAccount::class);
+    }
+
+    // One to Many
+    public function donations()
+    {
+        return $this->hasMany(Donation::class);
+    }
+
+    // Many to Many
+    public function categories()
+    {
+        return $this->belongsToMany(Category::class, 'campaign_category');
+    }
 }

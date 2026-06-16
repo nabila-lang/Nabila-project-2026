@@ -5,16 +5,14 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfilController;
 use App\Http\Controllers\KontakController;
 use App\Http\Controllers\CampaignController;
+use App\Http\Controllers\DonationController;
+
+Route::get('/', [HomeController::class,'index']);
 
 Route::get('/profil', [ProfilController::class, 'index']);
 Route::get('/kontak', [KontakController::class, 'index']);
-Route::get('/', [HomeController::class,'index']);
 
-Route::get('/profil', function () {
-    return view('profil');
-});
+Route::get('/donation', [DonationController::class, 'create']);
+Route::post('/donation', [DonationController::class, 'store']);
 
-Route::get('/kontak', function () {
-    return view('kontak');
-});
 Route::resource('campaign', CampaignController::class);
