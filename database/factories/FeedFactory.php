@@ -20,9 +20,9 @@ class FeedFactory extends Factory
     public function definition(): array
     {
         return [
-            'title' => $this->faker->sentence(4),
+            'title' => $this->faker->sentence(5),
             'statusFeed' => $this->faker->paragraph(3),
-            'likeFood' => $this->faker->numberBetween(5, 100) *100,
+            'likeFeed' => $this->faker->numberBetween(5, 100) *100,
             'created_at' => $this->faker->dateTimeBetween('-1 months','now'),
         ];
     }

@@ -1,8 +1,9 @@
 @extends('app')
 
+@section('title', 'Feed')
 @section('content')
 
-@section('title', 'Feed')
+
 
 <div class="max-w-6xl mx-auto space-y-8">
 
